@@ -909,14 +909,10 @@ function initRedComunitariaDropdown() {
    8. REGISTRO DE EVENTOS E INTERACCIONES (Teléfono, Maps, Email, Formulario)
    ========================================================================== */
 function trackInteraction(eventName, eventDetails = {}) {
-  // 1. Envío silencioso a Cloudflare Edge (0 cookies, sin demoras de carga)
+  // 1. Envío silencioso a Cloudflare Edge (método GET para evitar 405 en archivos JSON estáticos)
   try {
     const endpoint = `/api/event/${eventName}.json`;
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon(endpoint);
-    } else {
-      fetch(endpoint, { method: 'GET', keepalive: true, cache: 'no-store' }).catch(() => {});
-    }
+    fetch(endpoint, { method: 'GET', keepalive: true, cache: 'no-store' }).catch(() => {});
   } catch (e) {
     // Silencioso
   }
