@@ -58,6 +58,15 @@ function initNavigation() {
         }
       });
     });
+
+    // Cerrar el menú móvil al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        navMenu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+      }
+    });
   }
 
   // Active indicator on scroll
@@ -389,11 +398,26 @@ function initModals() {
 
   if (lightbox) {
     lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox || e.target === lightboxClose) {
+      // Cierra al hacer clic en cualquier parte fuera de la propia imagen
+      if (e.target !== lightboxImg) {
         closeLightbox();
       }
     });
   }
+
+  // Accesibilidad de teclado para tarjetas de proyecto y momentos fotográficos
+  document.querySelectorAll('.project-card, .gallery-card').forEach(card => {
+    if (!card.hasAttribute('tabindex')) {
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+    }
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -575,6 +599,26 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// Cerrar al hacer clic en el fondo exterior (backdrop)
+const legalModalEl = document.getElementById('legalModal');
+if (legalModalEl) {
+  legalModalEl.addEventListener('click', (e) => {
+    if (e.target === legalModalEl) {
+      closeLegalModal();
+    }
+  });
+}
+
+// Apertura automática si la URL contiene hash directo (#aviso-legal o #politica-privacidad)
+try {
+  const hash = window.location.hash.toLowerCase();
+  if (hash === '#aviso-legal' || hash === '#aviso') {
+    setTimeout(() => openLegalModal('aviso'), 150);
+  } else if (hash === '#politica-privacidad' || hash === '#privacidad') {
+    setTimeout(() => openLegalModal('privacidad'), 150);
+  }
+} catch (e) {}
+
 /* ==========================================================================
    6. BOTÓN VOLVER ARRIBA
    ========================================================================== */
@@ -605,22 +649,26 @@ function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
-      if (targetId === '#' || targetId === '') return;
+      if (!targetId || targetId === '#' || targetId.startsWith('#!')) return;
 
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        const header = document.querySelector('.site-header');
-        const headerHeight = header ? header.offsetHeight : 80;
-        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 5;
+      try {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          const header = document.querySelector('.site-header');
+          const headerHeight = header ? header.offsetHeight : 80;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 5;
 
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
 
-        targetElement.setAttribute('tabindex', '-1');
-        targetElement.focus({ preventScroll: true });
+          targetElement.setAttribute('tabindex', '-1');
+          targetElement.focus({ preventScroll: true });
+        }
+      } catch (err) {
+        // Ignora silenciosamente selectores que no sean elementos del DOM
       }
     });
   });
