@@ -857,7 +857,7 @@ function initRedComunitariaDropdown() {
 }
 
 /* ==========================================================================
-   8. REGISTRO DE EVENTOS E INTERACCIONES (Teléfono, Maps, Formulario)
+   8. REGISTRO DE EVENTOS E INTERACCIONES (Teléfono, Maps, Email, Formulario)
    ========================================================================== */
 function trackInteraction(eventName, eventDetails = {}) {
   // 1. Envío silencioso a Cloudflare Edge (0 cookies, sin demoras de carga)
@@ -872,26 +872,53 @@ function trackInteraction(eventName, eventDetails = {}) {
     // Silencioso
   }
 
-  // 2. Google Analytics 4 (activo y sincronizado)
-  if (typeof window.gtag === 'function') {
-    const gaEventName = eventName.replace(/-/g, '_');
-    window.gtag('event', gaEventName, eventDetails);
+  // 2. Google Analytics 4 (activo y sincronizado con gtag y dataLayer)
+  const gaEventName = eventName.replace(/-/g, '_');
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', gaEventName, eventDetails);
+    }
+    if (window.dataLayer && Array.isArray(window.dataLayer)) {
+      window.dataLayer.push(Object.assign({ event: gaEventName }, eventDetails));
+    }
+  } catch (e) {
+    // Silencioso
   }
 }
 
 function initInteractionTracking() {
-  // Clics en llamada telefónica
+  // Clics en llamada telefónica (+34 635 09 53 01)
   document.querySelectorAll('a[href^="tel:"]').forEach(link => {
     link.addEventListener('click', () => {
       const tel = link.getAttribute('href').replace('tel:', '');
-      trackInteraction('click-telefono', { telefono: tel });
+      trackInteraction('click-telefono', {
+        telefono: tel,
+        event_category: 'contacto',
+        event_label: tel
+      });
+    }, { passive: true });
+  });
+
+  // Clics en correo electrónico
+  document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      const email = link.getAttribute('href').replace('mailto:', '');
+      trackInteraction('click-email', {
+        email: email,
+        event_category: 'contacto',
+        event_label: email
+      });
     }, { passive: true });
   });
 
   // Clics en dirección de Google Maps
   document.querySelectorAll('a[href*="google.com/maps"], a[href*="maps.google"]').forEach(link => {
     link.addEventListener('click', () => {
-      trackInteraction('click-maps', { direccion: 'Passatge de Gaiola, 8, 12' });
+      trackInteraction('click-maps', {
+        direccion: 'Passatge de Gaiola, 8, 12',
+        event_category: 'contacto',
+        event_label: 'Google Maps Gaiola'
+      });
     }, { passive: true });
   });
 }
