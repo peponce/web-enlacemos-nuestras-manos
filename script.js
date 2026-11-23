@@ -946,6 +946,34 @@ function initCookieBanner() {
 
   if (!banner) return;
 
+  function dismissBanner(consentValue) {
+    try {
+      localStorage.setItem('cookie_consent', consentValue);
+    } catch (e) {}
+    banner.style.display = 'none';
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
+        'analytics_storage': consentValue === 'accepted' ? 'granted' : 'denied'
+      });
+    }
+  }
+
+  // Vincular eventos de cierre de forma permanente
+  if (btnAccept) {
+    btnAccept.addEventListener('click', function(e) {
+      if (e) e.preventDefault();
+      dismissBanner('accepted');
+    });
+  }
+
+  if (btnReject) {
+    btnReject.addEventListener('click', function(e) {
+      if (e) e.preventDefault();
+      dismissBanner('rejected');
+    });
+  }
+
+  // Verificación de consentimiento previo: solo se muestra en la primera visita
   var savedConsent = null;
   try {
     savedConsent = localStorage.getItem('cookie_consent');
@@ -956,41 +984,13 @@ function initCookieBanner() {
     return;
   }
 
-  // Aparece suavemente con leve retardo para no interferir en la carga inicial
-  setTimeout(() => {
+  // Muestra el banner únicamente al inicio
+  setTimeout(function() {
+    try {
+      if (localStorage.getItem('cookie_consent')) return;
+    } catch (e) {}
     banner.style.display = 'block';
   }, 600);
-
-  if (btnAccept) {
-    btnAccept.addEventListener('click', () => {
-      try { localStorage.setItem('cookie_consent', 'accepted'); } catch(e){}
-      banner.style.display = 'none';
-      if (typeof window.gtag === 'function') {
-        window.gtag('consent', 'update', {
-          'analytics_storage': 'granted'
-        });
-      }
-    });
-  }
-
-  if (btnReject) {
-    btnReject.addEventListener('click', () => {
-      try { localStorage.setItem('cookie_consent', 'rejected'); } catch(e){}
-      banner.style.display = 'none';
-      if (typeof window.gtag === 'function') {
-        window.gtag('consent', 'update', {
-          'analytics_storage': 'denied'
-        });
-      }
-    });
-  }
 }
-
-window.reopenCookieBanner = function() {
-  const banner = document.getElementById('cookieBanner');
-  if (banner) {
-    banner.style.display = 'block';
-  }
-};
 
 

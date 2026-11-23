@@ -1437,7 +1437,6 @@
           <a href="#nosotros">Quiénes Somos</a>
           <a href="#aviso-legal" onclick="openLegalModal('aviso'); return false;">Aviso Legal</a>
           <a href="#politica-privacidad" onclick="openLegalModal('privacidad'); return false;">Política de Privacidad</a>
-          <a href="javascript:void(0)" onclick="reopenCookieBanner(); return false;">Gestionar Cookies</a>
         </div>
       </div>
     </div>
@@ -1523,8 +1522,8 @@
         Utilizamos cookies propias y de analítica para comprender cómo interactúan los usuarios con la web y mejorar nuestros servicios comunitarios. Puedes aceptar todas o continuar solo con las necesarias. Más información en nuestra <a href="javascript:void(0)" onclick="openLegalModal('privacidad')">Política de Privacidad</a>.
       </p>
       <div class="cookie-actions">
-        <button type="button" id="btnRejectCookies" class="btn-cookie btn-cookie-secondary">Solo necesarias</button>
-        <button type="button" id="btnAcceptCookies" class="btn-cookie btn-cookie-primary">Aceptar todas</button>
+        <button type="button" id="btnRejectCookies" class="btn-cookie btn-cookie-secondary" onclick="this.closest('#cookieBanner').style.display='none'">Solo necesarias</button>
+        <button type="button" id="btnAcceptCookies" class="btn-cookie btn-cookie-primary" onclick="this.closest('#cookieBanner').style.display='none'">Aceptar todas</button>
       </div>
     </div>
   </aside>
