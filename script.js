@@ -470,7 +470,7 @@ function initContactForm() {
         alert(result.message || 'Hubo un error al procesar el envío. Por favor, inténtalo de nuevo.');
       }
     } catch (error) {
-      alert('Error de conexión al enviar el formulario. También puedes escribirnos directamente a: asociacion.enm2009@gmail.com');
+      alert('Error de conexión al enviar el formulario. También puedes escribirnos directamente a: info@enlacemosnuestrasmanos.org');
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalText;
