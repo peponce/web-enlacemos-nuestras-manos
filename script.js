@@ -922,6 +922,18 @@ function initInteractionTracking() {
       });
     }, { passive: true });
   });
+
+  // Clics en perfil de Instagram
+  document.querySelectorAll('a[href*="instagram.com"]').forEach(link => {
+    link.addEventListener('click', () => {
+      trackInteraction('click-instagram', {
+        red_social: 'instagram',
+        cuenta: 'enlacemosnuestrasmanos',
+        event_category: 'redes_sociales',
+        event_label: 'Instagram oficial'
+      });
+    }, { passive: true });
+  });
 }
 
 /* ==========================================================================

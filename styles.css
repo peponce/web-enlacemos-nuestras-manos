@@ -328,6 +328,35 @@ img {
   color: #ffffff;
 }
 
+.top-bar-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.8rem;
+  background: rgba(225, 48, 108, 0.22);
+  border: 1px solid rgba(225, 48, 108, 0.45);
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.top-bar-social:hover {
+  background: #E1306C;
+  color: #ffffff;
+}
+
+.top-bar-social svg {
+  color: #E1306C;
+  transition: color var(--transition-fast);
+}
+
+.top-bar-social:hover svg {
+  color: #ffffff;
+}
+
 /* ==========================================================================
    CABECERA PRINCIPAL & NAVEGACIÓN EXTENDIDA
    ========================================================================== */
