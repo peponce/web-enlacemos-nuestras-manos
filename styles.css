@@ -357,6 +357,68 @@ img {
   color: #ffffff;
 }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #64748B;
+  background: #F1F5F9;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid #CBD5E1;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  transition: all var(--transition-fast);
+}
+
+.lang-switch .lang-active {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.lang-switch .lang-link {
+  color: #475569;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.lang-switch .lang-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.lang-switch .lang-sep {
+  color: #CBD5E1;
+  font-weight: 400;
+  user-select: none;
+}
+
+.top-bar .lang-switch {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #94A3B8;
+  padding: 2px 9px;
+  font-size: 0.78rem;
+}
+
+.top-bar .lang-switch .lang-active {
+  color: #FFFFFF;
+}
+
+.top-bar .lang-switch .lang-link {
+  color: #CBD5E1;
+}
+
+.top-bar .lang-switch .lang-link:hover {
+  color: #FFFFFF;
+}
+
+.top-bar .lang-switch .lang-sep {
+  color: rgba(255, 255, 255, 0.3);
+}
+
 /* ==========================================================================
    CABECERA PRINCIPAL & NAVEGACIÓN EXTENDIDA
    ========================================================================== */

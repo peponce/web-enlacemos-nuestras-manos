@@ -29,6 +29,25 @@
     </image:image>
   </url>
   <url>
+    <loc>https://enlacemosnuestrasmanos.org/ca/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://enlacemosnuestrasmanos.org/og-image.jpg</image:loc>
+      <image:title>Associació Enlacemos Nuestras Manos - Obra Social Sagrada Família Barcelona</image:title>
+      <image:caption>Seu social de l'entitat al Passatge de Gaiolà, 8, 12, Eixample, 08013 Barcelona</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://enlacemosnuestrasmanos.org/logo.png</image:loc>
+      <image:title>Escut Oficial Associació Enlacemos Nuestras Manos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://enlacemosnuestrasmanos.org/Imagen1.webp</image:loc>
+      <image:title>Repartiment d'Aliments - Banc d'Aliments Sagrada Família</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://enlacemosnuestrasmanos.org/aviso-legal.html</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>

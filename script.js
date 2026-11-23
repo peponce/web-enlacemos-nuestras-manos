@@ -324,7 +324,8 @@ function initModals() {
   if (!modalBackdrop) return;
 
   window.openModal = function(key) {
-    const data = projectDetails[key];
+    const isCa = document.documentElement.lang === 'ca';
+    const data = (isCa && window.projectDetailsCa && window.projectDetailsCa[key]) ? window.projectDetailsCa[key] : projectDetails[key];
     if (!data) return;
     trackInteraction('ver-galeria', { accion: 'abrir_proyecto', proyecto: key });
 
@@ -339,14 +340,14 @@ function initModals() {
       modalGallery.innerHTML = '';
       if (data.images && data.images.length > 0) {
         if (modalGalleryCount) {
-          modalGalleryCount.textContent = `(${data.images.length} fotos reales)`;
+          modalGalleryCount.textContent = isCa ? `(${data.images.length} fotos reals)` : `(${data.images.length} fotos reales)`;
         }
         data.images.forEach((imgSrc, index) => {
           const item = document.createElement('div');
           item.className = 'modal-gallery-item';
           item.setAttribute('tabindex', '0');
           item.setAttribute('role', 'button');
-          item.setAttribute('aria-label', `Ampliar fotografía ${index + 1} de ${data.title}`);
+          item.setAttribute('aria-label', isCa ? `Ampliar fotografia ${index + 1} de ${data.title}` : `Ampliar fotografía ${index + 1} de ${data.title}`);
           const thumbSrc = imgSrc.replace(/\.webp$/, '-sm.webp');
           item.innerHTML = `
             <img src="${thumbSrc}" alt="${data.title} - Foto ${index + 1}" loading="lazy" width="280" height="180">
@@ -486,39 +487,41 @@ function initContactForm() {
     const mensaje = document.getElementById('mensaje').value.trim();
     const privacidad = document.getElementById('privacidad');
 
+    const isCa = document.documentElement.lang === 'ca';
+
     if (!nombre) {
-      showError('Por favor, indica tu nombre completo.');
+      showError(isCa ? 'Si us plau, indica el teu nom complet.' : 'Por favor, indica tu nombre completo.');
       document.getElementById('nombre').focus();
       return;
     }
 
     if (!email) {
-      showError('Por favor, introduce tu correo electrónico.');
+      showError(isCa ? 'Si us plau, introdueix el teu correu electrònic.' : 'Por favor, introduce tu correo electrónico.');
       document.getElementById('email').focus();
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-      showError('Por favor, introduce una dirección de correo electrónico válida (ejemplo: nombre@correo.com).');
+      showError(isCa ? 'Si us plau, introdueix una adreça de correu vàlida (exemple: nom@correu.com).' : 'Por favor, introduce una dirección de correo electrónico válida (ejemplo: nombre@correo.com).');
       document.getElementById('email').focus();
       return;
     }
 
     if (!motivo) {
-      showError('Por favor, selecciona el motivo de tu consulta.');
+      showError(isCa ? 'Si us plau, selecciona el motiu de la teva consulta.' : 'Por favor, selecciona el motivo de tu consulta.');
       document.getElementById('motivo').focus();
       return;
     }
 
     if (!mensaje) {
-      showError('Por favor, escribe tu mensaje o consulta.');
+      showError(isCa ? 'Si us plau, escriu el teu missatge o consulta.' : 'Por favor, escribe tu mensaje o consulta.');
       document.getElementById('mensaje').focus();
       return;
     }
 
     if (privacidad && !privacidad.checked) {
-      showError('Debes aceptar la Política de Privacidad para poder enviar el formulario.');
+      showError(isCa ? 'Has d\'acceptar la Política de Privadesa per poder enviar el formulari.' : 'Debes aceptar la Política de Privacidad para poder enviar el formulario.');
       privacidad.focus();
       return;
     }
@@ -527,7 +530,7 @@ function initContactForm() {
     const originalText = submitBtn.innerHTML;
     submitBtn.disabled = true;
     submitBtn.innerHTML = `
-      <span>Enviando mensaje...</span>
+      <span>${isCa ? 'Enviant missatge...' : 'Enviando mensaje...'}</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="spin-icon">
         <line x1="12" y1="2" x2="12" y2="6"></line>
         <line x1="12" y1="18" x2="12" y2="22"></line>
@@ -552,7 +555,9 @@ function initContactForm() {
       if (response.status === 200 && result.success) {
         trackInteraction('submit-formulario', { motivo: motivo });
         if (toast && toastMsg) {
-          toastMsg.textContent = `¡Muchas gracias, ${nombre}! Hemos recibido tu mensaje sobre "${motivo}" y te responderemos en breve a tu correo.`;
+          toastMsg.textContent = isCa
+            ? `Moltes gràcies, ${nombre}! Hem rebut el teu missatge sobre "${motivo}" i et respondrem aviat al teu correu.`
+            : `¡Muchas gracias, ${nombre}! Hemos recibido tu mensaje sobre "${motivo}" y te responderemos en breve a tu correo.`;
           toast.classList.add('show');
 
           setTimeout(() => {
@@ -562,10 +567,10 @@ function initContactForm() {
         form.reset();
         hideError();
       } else {
-        showError(result.message || 'Hubo un error al procesar el envío. Por favor, inténtalo de nuevo.');
+        showError(result.message || (isCa ? 'Hi ha hagut un error en processar l\'enviament. Si us plau, torna-ho a provar.' : 'Hubo un error al procesar el envío. Por favor, inténtalo de nuevo.'));
       }
     } catch (error) {
-      showError('Error de conexión al enviar el formulario. También puedes escribirnos directamente a: info@enlacemosnuestrasmanos.org o llamarnos al 635 09 53 01.');
+      showError(isCa ? 'Error de connexió en enviar el formulari. També pots escriure\'ns directament a: info@enlacemosnuestrasmanos.org o trucar-nos al 635 09 53 01.' : 'Error de conexión al enviar el formulario. También puedes escribirnos directamente a: info@enlacemosnuestrasmanos.org o llamarnos al 635 09 53 01.');
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalText;
@@ -678,6 +683,7 @@ function initSmoothScroll() {
    8. DESPLEGABLES QUIÉNES SOMOS (PRIMERA ACOGIDA Y RED COMUNITARIA)
    ========================================================================== */
 function initRedComunitariaDropdown() {
+  const isCa = document.documentElement.lang === 'ca';
   const entityButtons = document.querySelectorAll('.network-entity-btn');
   const detailContainer = document.getElementById('networkEntityDetail');
 
@@ -687,16 +693,16 @@ function initRedComunitariaDropdown() {
       toggleBtn: document.getElementById('primeraAcogidaToggle'),
       closeBtn: document.getElementById('primeraAcogidaClose'),
       panel: document.getElementById('primera-acogida'),
-      openLabel: 'Ocultar Primera Acogida',
-      closedLabel: 'Ver información y horarios'
+      openLabel: isCa ? 'Ocultar Primera Acollida' : 'Ocultar Primera Acogida',
+      closedLabel: isCa ? 'Veure informació i horaris' : 'Ver información y horarios'
     },
     {
       key: 'red',
       toggleBtn: document.getElementById('redComunitariaToggle'),
       closeBtn: document.getElementById('redComunitariaClose'),
       panel: document.getElementById('redComunitariaPanel'),
-      openLabel: 'Ocultar Proyecto Solidaridad en Red',
-      closedLabel: 'Ver Proyecto Solidaridad en Red'
+      openLabel: isCa ? 'Ocultar Projecte Solidaritat en Xarxa' : 'Ocultar Proyecto Solidaridad en Red',
+      closedLabel: isCa ? 'Veure Projecte Solidaritat en Xarxa' : 'Ver Proyecto Solidaridad en Red'
     }
   ].filter((cfg) => cfg.toggleBtn && cfg.panel);
 
@@ -803,7 +809,7 @@ function initRedComunitariaDropdown() {
       btn.classList.remove('active');
       btn.setAttribute('aria-expanded', 'false');
       const hintSpan = btn.querySelector('.network-entity-hint span');
-      if (hintSpan) hintSpan.textContent = 'Ver entrega';
+      if (hintSpan) hintSpan.textContent = isCa ? 'Veure lliurament' : 'Ver entrega';
     });
     if (detailContainer) {
       detailContainer.hidden = true;
@@ -812,7 +818,9 @@ function initRedComunitariaDropdown() {
   };
 
   const renderEntityDetail = (key) => {
-    const data = entityDeliveries[key];
+    const data = (isCa && window.entityDeliveriesCa && window.entityDeliveriesCa[key])
+      ? window.entityDeliveriesCa[key]
+      : entityDeliveries[key];
     if (!data || !detailContainer) return;
 
     const percent = ((data.colonias / totalColonias) * 100).toFixed(1).replace('.', ',');
@@ -823,7 +831,7 @@ function initRedComunitariaDropdown() {
       const thumbs = data.gallery.map((photo, idx) => {
         const thumbSrc = photo.src.replace(/\.webp$/, '-sm.webp');
         return `
-          <button type="button" class="network-detail-thumb" data-lightbox-src="${photo.src}" aria-label="Ampliar foto ${idx + 1} de la entrega en ${data.name}">
+          <button type="button" class="network-detail-thumb" data-lightbox-src="${photo.src}" aria-label="${isCa ? 'Ampliar foto ' + (idx + 1) + ' del lliurament a ' + data.name : 'Ampliar foto ' + (idx + 1) + ' de la entrega en ' + data.name}">
             <img src="${thumbSrc}" alt="${photo.alt}" loading="lazy" width="100" height="75">
           </button>
         `;
@@ -834,7 +842,7 @@ function initRedComunitariaDropdown() {
     if (data.website) {
       extraActionsHtml += `
         <a href="${data.website}" target="_blank" rel="noopener noreferrer" class="network-detail-link">
-          <span>Conocer la entidad</span>
+          <span>${isCa ? 'Conèixer l\'entitat' : 'Conocer la entidad'}</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
             <polyline points="15 3 21 3 21 9"></polyline>
@@ -846,19 +854,19 @@ function initRedComunitariaDropdown() {
 
     detailContainer.innerHTML = `
       <div class="network-detail-layout">
-        <button type="button" class="network-detail-media ${data.isPhoto ? 'is-photo' : ''}" data-lightbox-src="${data.image}" aria-label="Ampliar imagen de ${data.name}">
+        <button type="button" class="network-detail-media ${data.isPhoto ? 'is-photo' : ''}" data-lightbox-src="${data.image}" aria-label="${isCa ? 'Ampliar imatge de ' + data.name : 'Ampliar imagen de ' + data.name}">
           <img src="${data.image}" alt="${data.imageAlt}" loading="lazy">
         </button>
         <div>
           <div class="network-detail-top">
             <h5>${data.name}</h5>
-            <span class="network-detail-pill">${data.colonias} colonias</span>
+            <span class="network-detail-pill">${data.colonias} ${isCa ? 'colònies' : 'colonias'}</span>
           </div>
           <p class="network-detail-text">${data.summary}</p>
           <div class="network-detail-bar-wrap">
             <div class="network-detail-bar-meta">
-              <span>Parte del reparto en red</span>
-              <span>${data.colonias} de ${totalColonias.toLocaleString('es-ES')} colonias (${percent} %)</span>
+              <span>${isCa ? 'Part del repartiment en xarxa' : 'Parte del reparto en red'}</span>
+              <span>${data.colonias} de ${totalColonias.toLocaleString(isCa ? 'ca-ES' : 'es-ES')} ${isCa ? 'colònies' : 'colonias'} (${percent} %)</span>
             </div>
             <div class="network-detail-bar-track" aria-hidden="true">
               <div class="network-detail-bar-fill" style="width: ${percentWidth}%;"></div>
@@ -897,7 +905,7 @@ function initRedComunitariaDropdown() {
         item.classList.toggle('active', isSelected);
         item.setAttribute('aria-expanded', String(isSelected));
         const hintSpan = item.querySelector('.network-entity-hint span');
-        if (hintSpan) hintSpan.textContent = isSelected ? 'Ocultar entrega' : 'Ver entrega';
+        if (hintSpan) hintSpan.textContent = isSelected ? (isCa ? 'Ocultar lliurament' : 'Ocultar entrega') : (isCa ? 'Veure lliurament' : 'Ver entrega');
       });
 
       renderEntityDetail(key);
