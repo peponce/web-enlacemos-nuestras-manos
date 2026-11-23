@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <script>
+    if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      window.location.replace(window.location.href.replace(/^http:/, 'https:'));
+    }
+  </script>
   <title>ASOCIACIÓN ENLACEMOS NUESTRAS MANOS | Iglesia Evangélica Ebenezer • Barcelona</title>
   <meta name="description" content="Asociación Enlacemos Nuestras Manos en el barrio de Sagrada Família, Barcelona. Banco de alimentos, ropero solidario, podología, formación, voluntariado y apoyo integral a personas y familias vulnerables.">
 
