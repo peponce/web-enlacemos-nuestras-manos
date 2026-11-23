@@ -4,31 +4,53 @@
    ========================================================================== */
 
 :root {
-  /* Paleta Corporativa Principal */
-  --primary: #D80027;
-  --primary-hover: #B70020;
-  --primary-dark: #8E0017;
-  --primary-glow: rgba(216, 0, 39, 0.22);
-  --primary-subtle: rgba(216, 0, 39, 0.08);
+  /* Paleta Corporativa Principal (Carmesí Fraterno calibrado) */
+  --primary: #C81D25;
+  --primary-hover: #A8141B;
+  --primary-dark: #880E14;
+  --primary-glow: rgba(200, 29, 37, 0.22);
+  --primary-subtle: rgba(200, 29, 37, 0.08);
 
-  /* Acento Coral y Fondos Suaves */
-  --secondary: #F26A8D;
-  --secondary-light: #FF8FA3;
-  --secondary-subtle: #FFF0F3;
-  --secondary-border: #FCD5DC;
+  /* Acento Fraterno / Cálido Humano */
+  --secondary: #E07A5F;
+  --secondary-light: #F4A261;
+  --secondary-subtle: #FDF2F4;
+  --secondary-border: #F7D6DA;
 
-  /* Tonos Oscuros & Neutros (WCAG AAA) */
+  /* Esperanza, Nutrición & Salud Preventiva (Neuromarketing de Vida) */
+  --accent-health: #059669;
+  --accent-health-hover: #047857;
+  --accent-health-subtle: #ECFDF5;
+  --accent-health-border: #A7F3D0;
+
+  /* Educación & Formación Ocupacional */
+  --accent-training: #2563EB;
+  --accent-training-subtle: #EFF6FF;
+  --accent-training-border: #BFDBFE;
+
+  /* Solidaridad Internacional & Cooperación */
+  --accent-intl: #D97706;
+  --accent-intl-subtle: #FFFBEB;
+  --accent-intl-border: #FDE68A;
+
+  /* Comunidad, Familia & Celebración */
+  --accent-comm: #7C3AED;
+  --accent-comm-subtle: #FAF5FF;
+  --accent-comm-border: #DDD6FE;
+
+  /* Tonos Oscuros & Neutros Nobles (WCAG AAA) */
   --text-main: #1E293B;       /* Ratio contraste > 10:1 sobre blanco */
   --text-muted: #475569;
   --text-light: #64748B;
   --dark-bg: #0F172A;
   --dark-card: #1E293B;
+  --dark-deep: #0B1120;
 
-  /* Fondos */
+  /* Fondos Alternados (Ritmo Visual) */
   --bg-body: #FFFFFF;
   --bg-surface: #FFFFFF;
-  --bg-alt: #F8FAFC;
-  --bg-warm: #FFF8F9;
+  --bg-alt: #F8FAFC;          /* Gris Lino Suave */
+  --bg-warm: #FDFBF9;         /* Crema Lino Cálido / Hospitalario */
   --border-light: #E2E8F0;
   --border-subtle: #F1F5F9;
 
@@ -46,7 +68,7 @@
   --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.05);
   --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 16px 36px rgba(15, 23, 42, 0.12);
-  --shadow-primary: 0 8px 24px rgba(216, 0, 39, 0.28);
+  --shadow-primary: 0 8px 24px rgba(200, 29, 37, 0.28);
 
   /* Transiciones */
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -193,7 +215,7 @@ img {
   background-color: var(--primary-hover);
   border-color: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(216, 0, 39, 0.35);
+  box-shadow: 0 12px 28px rgba(200, 29, 37, 0.35);
 }
 
 .btn-secondary {
@@ -248,6 +270,10 @@ img {
 
 .section-alt {
   background-color: var(--bg-alt);
+}
+
+.section-warm {
+  background-color: var(--bg-warm);
 }
 
 .section-dark {
@@ -320,8 +346,8 @@ img {
 .top-bar-help-link {
   color: #ffffff;
   font-weight: 700;
-  background: rgba(216, 0, 39, 0.25);
-  border: 1px solid rgba(216, 0, 39, 0.5);
+  background: rgba(200, 29, 37, 0.25);
+  border: 1px solid rgba(200, 29, 37, 0.5);
   padding: 2px 10px;
   border-radius: var(--radius-full);
   transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
@@ -495,7 +521,7 @@ img {
   white-space: nowrap;
 }
 
-/* Menú de Navegación con cada botón rodeado de una línea */
+/* Menú de Navegación limpio y equilibrado */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -514,27 +540,26 @@ img {
   color: var(--text-main);
   padding: 8px 16px;
   border-radius: var(--radius-full);
-  border: 1.5px solid #CBD5E1; /* Línea que rodea cada botón */
-  background-color: #FFFFFF;
+  border: 1px solid transparent;
+  background-color: transparent;
   text-decoration: none;
   transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
   white-space: nowrap;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 
 .nav-link:hover {
   color: var(--primary);
-  border-color: var(--primary);
-  background-color: var(--secondary-subtle);
+  background-color: var(--bg-alt);
+  border-color: var(--border-light);
   transform: translateY(-1px);
-  box-shadow: 0 3px 8px rgba(216, 0, 39, 0.12);
 }
 
 .nav-link.active {
-  color: #FFFFFF;
-  background-color: var(--primary);
-  border-color: var(--primary);
-  box-shadow: 0 3px 10px rgba(216, 0, 39, 0.25);
+  color: var(--primary);
+  background-color: var(--secondary-subtle);
+  border-color: var(--secondary-border);
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(200, 29, 37, 0.08);
 }
 
 .mobile-only-nav-item {
@@ -672,7 +697,7 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(216, 0, 39, 0.25) 0%, transparent 60%);
+  background: radial-gradient(circle at 80% 20%, rgba(200, 29, 37, 0.25) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -690,9 +715,9 @@ img {
 }
 
 .hero-badge {
-  background: rgba(216, 0, 39, 0.2);
-  border: 1px solid rgba(242, 106, 141, 0.4);
-  color: #FF8FA3;
+  background: rgba(200, 29, 37, 0.2);
+  border: 1px solid rgba(224, 122, 95, 0.4);
+  color: var(--secondary-light);
   margin-bottom: 20px;
 }
 
@@ -746,7 +771,7 @@ img {
 
 .hero-service-panel:hover {
   border-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.44), 0 0 0 1px rgba(216, 0, 39, 0.25);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.44), 0 0 0 1px rgba(200, 29, 37, 0.25);
   transform: translateY(-2px);
 }
 
@@ -801,8 +826,8 @@ img {
 }
 
 .service-highlight-card {
-  background: linear-gradient(135deg, rgba(216, 0, 39, 0.18) 0%, rgba(15, 23, 42, 0.45) 100%);
-  border: 1px solid rgba(216, 0, 39, 0.38);
+  background: linear-gradient(135deg, rgba(200, 29, 37, 0.18) 0%, rgba(15, 23, 42, 0.45) 100%);
+  border: 1px solid rgba(200, 29, 37, 0.38);
   border-radius: var(--radius-md);
   padding: 16px 18px;
   margin-bottom: 18px;
@@ -815,8 +840,8 @@ img {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: rgba(216, 0, 39, 0.28);
-  border: 1px solid rgba(216, 0, 39, 0.45);
+  background: rgba(200, 29, 37, 0.28);
+  border: 1px solid rgba(200, 29, 37, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -828,7 +853,7 @@ img {
   display: block;
   font-size: 0.68rem;
   font-weight: 800;
-  color: #FF8FA3;
+  color: var(--secondary-light);
   letter-spacing: 0.08em;
   margin-bottom: 2px;
 }
@@ -906,14 +931,14 @@ img {
   border-radius: var(--radius-full);
   text-decoration: none;
   transition: all var(--transition-fast);
-  box-shadow: 0 4px 14px rgba(216, 0, 39, 0.35);
+  box-shadow: 0 4px 14px rgba(200, 29, 37, 0.35);
   white-space: nowrap;
 }
 
 .btn-panel-primary:hover {
   background: var(--primary-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(216, 0, 39, 0.45);
+  box-shadow: 0 6px 18px rgba(200, 29, 37, 0.45);
 }
 
 .btn-panel-secondary {
@@ -1093,7 +1118,7 @@ img {
 
 .about-feature-trigger[aria-expanded="true"] {
   border-color: var(--primary);
-  box-shadow: 0 8px 24px rgba(216, 0, 39, 0.14);
+  box-shadow: 0 8px 24px rgba(200, 29, 37, 0.14);
   background: #ffffff;
 }
 
@@ -1315,7 +1340,7 @@ img {
 .network-entity-btn.active {
   border-color: var(--primary);
   background: var(--bg-warm);
-  box-shadow: 0 8px 20px rgba(216, 0, 39, 0.14);
+  box-shadow: 0 8px 20px rgba(200, 29, 37, 0.14);
 }
 
 .network-entity-top {
@@ -1829,15 +1854,99 @@ img {
   left: 14px;
   font-size: 0.72rem;
   font-weight: 800;
-  padding: 4px 10px;
+  padding: 4px 11px;
   border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   color: var(--primary);
   border: 1px solid var(--secondary-border);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   z-index: 2;
+  transition: all var(--transition-fast);
+}
+
+/* Insignias Semánticas por Categoría (Neuromarketing de Reconocimiento Inmediato) */
+.project-card[data-category="social"] .project-badge-cat {
+  background: rgba(254, 242, 242, 0.96);
+  color: var(--primary);
+  border-color: var(--secondary-border);
+}
+
+.project-card[data-category="salud"] .project-badge-cat {
+  background: rgba(236, 253, 245, 0.96);
+  color: var(--accent-health);
+  border-color: var(--accent-health-border);
+}
+
+.project-card[data-category="formacion"] .project-badge-cat {
+  background: rgba(239, 246, 255, 0.96);
+  color: var(--accent-training);
+  border-color: var(--accent-training-border);
+}
+
+.project-card[data-category="internacional"] .project-badge-cat {
+  background: rgba(255, 251, 235, 0.96);
+  color: var(--accent-intl);
+  border-color: var(--accent-intl-border);
+}
+
+.project-card[data-category="comunidad"] .project-badge-cat {
+  background: rgba(250, 245, 255, 0.96);
+  color: var(--accent-comm);
+  border-color: var(--accent-comm-border);
+}
+
+/* Efecto hover personalizado por categoría */
+.project-card[data-category="salud"]:hover {
+  border-color: var(--accent-health);
+  box-shadow: 0 14px 32px rgba(5, 150, 105, 0.14);
+}
+
+.project-card[data-category="formacion"]:hover {
+  border-color: var(--accent-training);
+  box-shadow: 0 14px 32px rgba(37, 99, 235, 0.14);
+}
+
+.project-card[data-category="internacional"]:hover {
+  border-color: var(--accent-intl);
+  box-shadow: 0 14px 32px rgba(217, 119, 6, 0.14);
+}
+
+.project-card[data-category="comunidad"]:hover {
+  border-color: var(--accent-comm);
+  box-shadow: 0 14px 32px rgba(124, 58, 237, 0.14);
+}
+
+/* Modal Categoría Semántica */
+#modalCategory[data-category="social"] {
+  background: var(--primary-subtle);
+  color: var(--primary);
+  border-color: var(--secondary-border);
+}
+
+#modalCategory[data-category="salud"] {
+  background: var(--accent-health-subtle);
+  color: var(--accent-health);
+  border-color: var(--accent-health-border);
+}
+
+#modalCategory[data-category="formacion"] {
+  background: var(--accent-training-subtle);
+  color: var(--accent-training);
+  border-color: var(--accent-training-border);
+}
+
+#modalCategory[data-category="internacional"] {
+  background: var(--accent-intl-subtle);
+  color: var(--accent-intl);
+  border-color: var(--accent-intl-border);
+}
+
+#modalCategory[data-category="comunidad"] {
+  background: var(--accent-comm-subtle);
+  color: var(--accent-comm);
+  border-color: var(--accent-comm-border);
 }
 
 .project-card-body {
@@ -1883,7 +1992,7 @@ img {
    COLABORADORES & ENTIDADES ALIADAS
    ========================================================================== */
 .partners-section {
-  background: #ffffff;
+  background: var(--bg-alt);
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
 }
@@ -1974,7 +2083,7 @@ img {
 }
 
 .partner-pill-link {
-  background: var(--bg-alt);
+  background: #ffffff;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 16px 12px;
@@ -2150,7 +2259,7 @@ img {
 .gallery-card:hover .gallery-card-btn {
   background: var(--primary);
   border-color: var(--primary);
-  box-shadow: 0 4px 14px rgba(216, 0, 39, 0.45);
+  box-shadow: 0 4px 14px rgba(200, 29, 37, 0.45);
 }
 
 .gallery-card-hint {
@@ -2164,7 +2273,7 @@ img {
 }
 
 .gallery-card:hover .gallery-card-hint {
-  color: #FF8FA3;
+  color: var(--secondary-light);
 }
 
 /* ==========================================================================
@@ -2212,8 +2321,8 @@ img {
 .contact-detail-icon {
   width: 44px;
   height: 44px;
-  background: rgba(216, 0, 39, 0.25);
-  border: 1px solid rgba(216, 0, 39, 0.5);
+  background: rgba(200, 29, 37, 0.25);
+  border: 1px solid rgba(200, 29, 37, 0.5);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -3003,7 +3112,7 @@ img {
 }
 
 .cookie-desc a {
-  color: var(--primary, #D80027);
+  color: var(--primary, #C81D25);
   text-decoration: underline;
   font-weight: 500;
 }
@@ -3040,12 +3149,12 @@ img {
 }
 
 .btn-cookie-primary {
-  background-color: var(--primary, #D80027);
+  background-color: var(--primary, #C81D25);
   color: #ffffff;
 }
 
 .btn-cookie-primary:hover {
-  background-color: var(--primary-dark, #b70020);
+  background-color: var(--primary-dark, #a8141b);
 }
 
 @media (max-width: 640px) {

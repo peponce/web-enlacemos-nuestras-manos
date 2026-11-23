@@ -445,6 +445,19 @@ function initModals() {
 
     modalTitle.textContent = data.title;
     modalCategory.textContent = data.category;
+    const catMap = {
+      'Área Social': 'social',
+      'Àrea Social': 'social',
+      'Salud y Bienestar': 'salud',
+      'Salut i Benestar': 'salud',
+      'Formación y Empleo': 'formacion',
+      'Formació i Ocupació': 'formacion',
+      'Acción Internacional': 'internacional',
+      'Acció Internacional': 'internacional',
+      'Comunidad y Ocio': 'comunidad',
+      'Comunitat i Lleure': 'comunidad'
+    };
+    modalCategory.setAttribute('data-category', catMap[data.category] || 'social');
     modalDesc.textContent = data.description;
     modalCollab.textContent = data.collaboration;
     modalHours.textContent = data.hours;
