@@ -408,25 +408,69 @@ function initContactForm() {
   const form = document.getElementById('mainContactForm');
   const toast = document.getElementById('toastNotification');
   const toastMsg = document.getElementById('toastMessage');
+  const errorBox = document.getElementById('formErrorBox');
 
   if (!form) return;
 
+  const showError = (msg) => {
+    if (errorBox) {
+      errorBox.textContent = msg;
+      errorBox.style.display = 'block';
+      errorBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  };
+
+  const hideError = () => {
+    if (errorBox) {
+      errorBox.textContent = '';
+      errorBox.style.display = 'none';
+    }
+  };
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    hideError();
 
     const nombre = document.getElementById('nombre').value.trim();
     const email = document.getElementById('email').value.trim();
     const motivo = document.getElementById('motivo').value;
     const mensaje = document.getElementById('mensaje').value.trim();
+    const privacidad = document.getElementById('privacidad');
 
-    if (!nombre || !email || !motivo || !mensaje) {
-      alert('Por favor, completa todos los campos requeridos.');
+    if (!nombre) {
+      showError('Por favor, indica tu nombre completo.');
+      document.getElementById('nombre').focus();
+      return;
+    }
+
+    if (!email) {
+      showError('Por favor, introduce tu correo electrónico.');
+      document.getElementById('email').focus();
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-      alert('Por favor, introduce una dirección de correo electrónico válida.');
+      showError('Por favor, introduce una dirección de correo electrónico válida (ejemplo: nombre@correo.com).');
+      document.getElementById('email').focus();
+      return;
+    }
+
+    if (!motivo) {
+      showError('Por favor, selecciona el motivo de tu consulta.');
+      document.getElementById('motivo').focus();
+      return;
+    }
+
+    if (!mensaje) {
+      showError('Por favor, escribe tu mensaje o consulta.');
+      document.getElementById('mensaje').focus();
+      return;
+    }
+
+    if (privacidad && !privacidad.checked) {
+      showError('Debes aceptar la Política de Privacidad para poder enviar el formulario.');
+      privacidad.focus();
       return;
     }
 
@@ -466,17 +510,64 @@ function initContactForm() {
           }, 6000);
         }
         form.reset();
+        hideError();
       } else {
-        alert(result.message || 'Hubo un error al procesar el envío. Por favor, inténtalo de nuevo.');
+        showError(result.message || 'Hubo un error al procesar el envío. Por favor, inténtalo de nuevo.');
       }
     } catch (error) {
-      alert('Error de conexión al enviar el formulario. También puedes escribirnos directamente a: info@enlacemosnuestrasmanos.org');
+      showError('Error de conexión al enviar el formulario. También puedes escribirnos directamente a: info@enlacemosnuestrasmanos.org o llamarnos al 635 09 53 01.');
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalText;
     }
   });
 }
+
+/* ==========================================================================
+   MODAL LEGAL ACCESIBLE (AVISO LEGAL Y PRIVACIDAD RGPD)
+   ========================================================================== */
+window.openLegalModal = function(type) {
+  const modal = document.getElementById('legalModal');
+  if (!modal) return;
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  switchLegalTab(type || 'aviso');
+};
+
+window.closeLegalModal = function() {
+  const modal = document.getElementById('legalModal');
+  if (!modal) return;
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+};
+
+window.switchLegalTab = function(type) {
+  const contentAviso = document.getElementById('contentAvisoLegal');
+  const contentPriv = document.getElementById('contentPrivacidad');
+  const tabAviso = document.getElementById('tabAviso');
+  const tabPriv = document.getElementById('tabPrivacidad');
+
+  if (type === 'privacidad') {
+    if (contentAviso) contentAviso.style.display = 'none';
+    if (contentPriv) contentPriv.style.display = 'block';
+    if (tabAviso) tabAviso.classList.remove('active');
+    if (tabPriv) tabPriv.classList.add('active');
+  } else {
+    if (contentAviso) contentAviso.style.display = 'block';
+    if (contentPriv) contentPriv.style.display = 'none';
+    if (tabAviso) tabAviso.classList.add('active');
+    if (tabPriv) tabPriv.classList.remove('active');
+  }
+};
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const legalModal = document.getElementById('legalModal');
+    if (legalModal && legalModal.style.display === 'flex') {
+      closeLegalModal();
+    }
+  }
+});
 
 /* ==========================================================================
    6. BOTÓN VOLVER ARRIBA
