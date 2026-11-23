@@ -562,54 +562,57 @@ img {
    OPTIMIZACIÓN RESPONSIVA DEL HEADER (Evita desbordamiento en laptops y pantallas medianas)
    ========================================================================== */
 .site-header .header-container {
-  padding-left: clamp(12px, 2vw, 28px);
-  padding-right: clamp(12px, 2vw, 28px);
+  padding-left: clamp(14px, 2.5vw, 36px);
+  padding-right: clamp(14px, 2.5vw, 36px);
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1366px) {
+  .header-container {
+    gap: 12px;
+  }
+  .brand-link {
+    gap: 10px;
+  }
+  .brand-logo {
+    height: 52px;
+    width: 45px;
+  }
+  .brand-name {
+    font-size: 1.04rem;
+  }
+  .brand-tagline {
+    font-size: 0.62rem;
+  }
+  .nav-menu {
+    gap: 6px;
+  }
+  .nav-link {
+    padding: 7px 12px;
+    font-size: 0.83rem;
+  }
+  .header-actions {
+    gap: 8px;
+  }
+  .header-actions .btn {
+    padding: 7px 14px;
+    font-size: 0.84rem;
+  }
+  .lang-switch {
+    padding: 4px 9px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1200px) {
   .header-container {
     gap: 8px;
   }
-  .brand-link {
-    gap: 8px;
-  }
-  .brand-logo {
-    height: 48px;
-    width: 41px;
-  }
-  .brand-name {
-    font-size: 0.96rem;
-  }
-  .brand-tagline {
-    font-size: 0.58rem;
-  }
-  .nav-menu {
-    gap: 4px;
-  }
-  .nav-link {
-    padding: 6px 9px;
-    font-size: 0.8rem;
-  }
-  .header-actions {
-    gap: 6px;
-  }
-  .header-actions .btn {
-    padding: 6px 12px;
-    font-size: 0.8rem;
-  }
-  .lang-switch {
-    padding: 3px 7px;
-    font-size: 0.76rem;
-  }
-}
-
-@media (max-width: 1220px) {
   .brand-tagline {
     display: none;
   }
   .nav-link {
-    padding: 5px 8px;
-    font-size: 0.77rem;
+    padding: 6px 10px;
+    font-size: 0.8rem;
   }
 }
 
