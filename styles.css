@@ -558,6 +558,59 @@ img {
   color: #ffffff;
 }
 
+/* ==========================================================================
+   OPTIMIZACIÓN RESPONSIVA DEL HEADER (Evita desbordamiento en laptops y pantallas medianas)
+   ========================================================================== */
+@media (max-width: 1400px) {
+  .header-container {
+    gap: 10px;
+  }
+  .brand-link {
+    gap: 10px;
+  }
+  .brand-logo {
+    height: 54px;
+    width: 46px;
+  }
+  .brand-name {
+    font-size: 1.05rem;
+  }
+  .brand-tagline {
+    font-size: 0.62rem;
+  }
+  .nav-menu {
+    gap: 5px;
+  }
+  .nav-link {
+    padding: 6px 11px;
+    font-size: 0.82rem;
+  }
+  .header-actions {
+    gap: 8px;
+  }
+  .header-actions .btn {
+    padding: 7px 14px;
+    font-size: 0.82rem;
+  }
+  .lang-switch {
+    padding: 3px 8px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 1240px) {
+  .header-container {
+    gap: 8px;
+  }
+  .brand-tagline {
+    display: none;
+  }
+  .nav-link {
+    padding: 6px 9px;
+    font-size: 0.78rem;
+  }
+}
+
 @media (max-width: 1140px) {
   .mobile-only-nav-item {
     display: block;
