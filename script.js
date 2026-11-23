@@ -872,9 +872,10 @@ function trackInteraction(eventName, eventDetails = {}) {
     // Silencioso
   }
 
-  // 2. Google Analytics 4 (preparado automáticamente para cuando se active)
+  // 2. Google Analytics 4 (activo y sincronizado)
   if (typeof window.gtag === 'function') {
-    window.gtag('event', eventName, eventDetails);
+    const gaEventName = eventName.replace(/-/g, '_');
+    window.gtag('event', gaEventName, eventDetails);
   }
 }
 
