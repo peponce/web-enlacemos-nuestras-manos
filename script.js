@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initBackToTop();
   initSmoothScroll();
+  initInteractionTracking();
 });
 
 /* ==========================================================================
@@ -149,6 +150,7 @@ function initProjectTabs() {
       btn.classList.add('active');
 
       const filter = btn.getAttribute('data-filter');
+      trackInteraction('cambio-pestana', { categoria: filter });
       let visibleCount = 0;
 
       projectCards.forEach(card => {
@@ -314,6 +316,7 @@ function initModals() {
   window.openModal = function(key) {
     const data = projectDetails[key];
     if (!data) return;
+    trackInteraction('ver-galeria', { accion: 'abrir_proyecto', proyecto: key });
 
     modalTitle.textContent = data.title;
     modalCategory.textContent = data.category;
@@ -365,6 +368,7 @@ function initModals() {
 
   window.openLightbox = function(src) {
     if (!lightbox || !lightboxImg) return;
+    trackInteraction('ver-galeria', { accion: 'ampliar_foto', imagen: src });
     lightboxImg.src = src;
     lightbox.classList.add('open');
   };
@@ -501,6 +505,7 @@ function initContactForm() {
       const result = await response.json();
 
       if (response.status === 200 && result.success) {
+        trackInteraction('submit-formulario', { motivo: motivo });
         if (toast && toastMsg) {
           toastMsg.textContent = `¡Muchas gracias, ${nombre}! Hemos recibido tu mensaje sobre "${motivo}" y te responderemos en breve a tu correo.`;
           toast.classList.add('show');
@@ -850,3 +855,43 @@ function initRedComunitariaDropdown() {
     });
   });
 }
+
+/* ==========================================================================
+   8. REGISTRO DE EVENTOS E INTERACCIONES (Teléfono, Maps, Formulario)
+   ========================================================================== */
+function trackInteraction(eventName, eventDetails = {}) {
+  // 1. Envío silencioso a Cloudflare Edge (0 cookies, sin demoras de carga)
+  try {
+    const endpoint = `/api/event/${eventName}.json`;
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(endpoint);
+    } else {
+      fetch(endpoint, { method: 'GET', keepalive: true, cache: 'no-store' }).catch(() => {});
+    }
+  } catch (e) {
+    // Silencioso
+  }
+
+  // 2. Google Analytics 4 (preparado automáticamente para cuando se active)
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', eventName, eventDetails);
+  }
+}
+
+function initInteractionTracking() {
+  // Clics en llamada telefónica
+  document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      const tel = link.getAttribute('href').replace('tel:', '');
+      trackInteraction('click-telefono', { telefono: tel });
+    }, { passive: true });
+  });
+
+  // Clics en dirección de Google Maps
+  document.querySelectorAll('a[href*="google.com/maps"], a[href*="maps.google"]').forEach(link => {
+    link.addEventListener('click', () => {
+      trackInteraction('click-maps', { direccion: 'Passatge de Gaiola, 8, 12' });
+    }, { passive: true });
+  });
+}
+
