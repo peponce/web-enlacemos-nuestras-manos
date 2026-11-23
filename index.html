@@ -1454,7 +1454,7 @@
   <!-- ==========================================================================
        MODAL LEGAL ACCESIBLE: AVISO LEGAL Y POLÍTICA DE PRIVACIDAD (RGPD)
        ========================================================================== -->
-  <div id="legalModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle" style="display:none;">
+  <div id="legalModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle" style="display:none;" onclick="if(event.target===this)closeLegalModal()">
     <div class="modal-content" style="max-width: 680px; max-height: 85vh; overflow-y: auto;">
       <button type="button" id="legalModalClose" class="modal-close" aria-label="Cerrar ventana legal" onclick="closeLegalModal()">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

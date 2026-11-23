@@ -419,6 +419,26 @@ function initModals() {
     });
   });
 
+  // Modal Legal (Aviso y Privacidad) cierre en fondo exterior
+  const legalModal = document.getElementById('legalModal');
+  if (legalModal) {
+    legalModal.addEventListener('click', (e) => {
+      if (e.target === legalModal) {
+        closeLegalModal();
+      }
+    });
+  }
+
+  // Soporte directo para hash en la URL (#aviso-legal, #politica-privacidad)
+  try {
+    const hash = window.location.hash.toLowerCase();
+    if (hash === '#aviso-legal' || hash === '#aviso') {
+      setTimeout(() => openLegalModal('aviso'), 150);
+    } else if (hash === '#politica-privacidad' || hash === '#privacidad') {
+      setTimeout(() => openLegalModal('privacidad'), 150);
+    }
+  } catch (e) {}
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (lightbox && lightbox.classList.contains('open')) {
@@ -598,26 +618,6 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
-
-// Cerrar al hacer clic en el fondo exterior (backdrop)
-const legalModalEl = document.getElementById('legalModal');
-if (legalModalEl) {
-  legalModalEl.addEventListener('click', (e) => {
-    if (e.target === legalModalEl) {
-      closeLegalModal();
-    }
-  });
-}
-
-// Apertura automática si la URL contiene hash directo (#aviso-legal o #politica-privacidad)
-try {
-  const hash = window.location.hash.toLowerCase();
-  if (hash === '#aviso-legal' || hash === '#aviso') {
-    setTimeout(() => openLegalModal('aviso'), 150);
-  } else if (hash === '#politica-privacidad' || hash === '#privacidad') {
-    setTimeout(() => openLegalModal('privacidad'), 150);
-  }
-} catch (e) {}
 
 /* ==========================================================================
    6. BOTÓN VOLVER ARRIBA
