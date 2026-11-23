@@ -1,0 +1,5 @@
+# robots.txt - Asociación Enlacemos Nuestras Manos
+User-agent: *
+Allow: /
+
+Sitemap: https://enlacemosnuestrasmanos.org/sitemap.xml
