@@ -2559,3 +2559,125 @@ img {
     padding: 28px 20px;
   }
 }
+
+/* ==========================================================================
+   BANNER DE COOKIES MINIMALISTA (RGPD / AEPD)
+   ========================================================================== */
+.cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  max-width: 440px;
+  width: calc(100% - 48px);
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16), 0 2px 6px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e2e8f0;
+  padding: 20px 22px;
+  z-index: 9999;
+  font-family: inherit;
+  animation: cookieSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cookieSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cookie-banner-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.cookie-banner-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.cookie-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.cookie-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.cookie-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #475569;
+  margin: 0 0 16px 0;
+}
+
+.cookie-desc a {
+  color: var(--primary, #D80027);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-cookie {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.18s ease, transform 0.12s ease;
+  border: 1px solid transparent;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-cookie-secondary {
+  background-color: #f1f5f9;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+
+.btn-cookie-secondary:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.btn-cookie-primary {
+  background-color: var(--primary, #D80027);
+  color: #ffffff;
+}
+
+.btn-cookie-primary:hover {
+  background-color: var(--primary-dark, #b70020);
+}
+
+@media (max-width: 640px) {
+  .cookie-banner {
+    bottom: 12px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+    padding: 16px 18px;
+    border-radius: 12px;
+  }
+  .cookie-actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+}

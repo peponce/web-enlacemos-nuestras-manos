@@ -8,6 +8,17 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    (function() {
+      var consent = null;
+      try { consent = localStorage.getItem('cookie_consent'); } catch(e){}
+      var isGranted = consent === 'accepted';
+      gtag('consent', 'default', {
+        'analytics_storage': isGranted ? 'granted' : 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+      });
+    })();
     gtag('js', new Date());
     gtag('config', 'G-1ZMS4861KT', {
       anonymize_ip: true
@@ -1379,6 +1390,7 @@
           <a href="#nosotros">Quiénes Somos</a>
           <a href="#aviso-legal" onclick="openLegalModal('aviso'); return false;">Aviso Legal</a>
           <a href="#politica-privacidad" onclick="openLegalModal('privacidad'); return false;">Política de Privacidad</a>
+          <a href="javascript:void(0)" onclick="reopenCookieBanner(); return false;">Gestionar Cookies</a>
         </div>
       </div>
     </div>
@@ -1450,6 +1462,25 @@
       </div>
     </div>
   </div>
+
+  <!-- ==========================================================================
+       BANNER DE COOKIES MINIMALISTA Y ACCESIBLE (RGPD / AEPD)
+       ========================================================================== -->
+  <aside id="cookieBanner" class="cookie-banner" role="region" aria-label="Preferencias de privacidad y cookies" style="display:none;">
+    <div class="cookie-banner-content">
+      <div class="cookie-banner-header">
+        <span class="cookie-icon" aria-hidden="true">🍪</span>
+        <h4 class="cookie-title">Tu privacidad nos importa</h4>
+      </div>
+      <p class="cookie-desc">
+        Utilizamos cookies propias y de analítica para comprender cómo interactúan los usuarios con la web y mejorar nuestros servicios comunitarios. Puedes aceptar todas o continuar solo con las necesarias. Más información en nuestra <a href="javascript:void(0)" onclick="openLegalModal('privacidad')">Política de Privacidad</a>.
+      </p>
+      <div class="cookie-actions">
+        <button type="button" id="btnRejectCookies" class="btn-cookie btn-cookie-secondary">Solo necesarias</button>
+        <button type="button" id="btnAcceptCookies" class="btn-cookie btn-cookie-primary">Aceptar todas</button>
+      </div>
+    </div>
+  </aside>
 
 </body>
 </html>

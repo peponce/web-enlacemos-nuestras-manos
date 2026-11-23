@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initSmoothScroll();
   initInteractionTracking();
+  initCookieBanner();
 });
 
 /* ==========================================================================
@@ -922,4 +923,62 @@ function initInteractionTracking() {
     }, { passive: true });
   });
 }
+
+/* ==========================================================================
+   9. GESTIÓN DEL CONSENTIMIENTO DE COOKIES (RGPD / AEPD)
+   ========================================================================== */
+function initCookieBanner() {
+  const banner = document.getElementById('cookieBanner');
+  const btnAccept = document.getElementById('btnAcceptCookies');
+  const btnReject = document.getElementById('btnRejectCookies');
+
+  if (!banner) return;
+
+  var savedConsent = null;
+  try {
+    savedConsent = localStorage.getItem('cookie_consent');
+  } catch (e) {}
+
+  if (savedConsent) {
+    banner.style.display = 'none';
+    return;
+  }
+
+  // Aparece suavemente con leve retardo para no interferir en la carga inicial
+  setTimeout(() => {
+    banner.style.display = 'block';
+  }, 600);
+
+  if (btnAccept) {
+    btnAccept.addEventListener('click', () => {
+      try { localStorage.setItem('cookie_consent', 'accepted'); } catch(e){}
+      banner.style.display = 'none';
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+          'analytics_storage': 'granted'
+        });
+      }
+    });
+  }
+
+  if (btnReject) {
+    btnReject.addEventListener('click', () => {
+      try { localStorage.setItem('cookie_consent', 'rejected'); } catch(e){}
+      banner.style.display = 'none';
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+          'analytics_storage': 'denied'
+        });
+      }
+    });
+  }
+}
+
+window.reopenCookieBanner = function() {
+  const banner = document.getElementById('cookieBanner');
+  if (banner) {
+    banner.style.display = 'block';
+  }
+};
+
 
