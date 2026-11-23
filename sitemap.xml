@@ -28,4 +28,22 @@
       <image:title>Podología Solidaria Preventiva</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://enlacemosnuestrasmanos.org/aviso-legal.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://enlacemosnuestrasmanos.org/politica-privacidad.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://enlacemosnuestrasmanos.org/politica-cookies.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
