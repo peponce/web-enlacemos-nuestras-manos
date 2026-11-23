@@ -195,7 +195,7 @@ const projectDetails = {
   banco: {
     title: 'Banco de Alimentos',
     category: 'Área Social',
-    images: ['Imagen1.webp', 'Imagen2.webp', 'Imagen4.webp', 'Imagen5.webp', 'Imagen6.webp', 'Imagen7.webp'],
+    images: ['/Imagen1.webp', '/Imagen2.webp', '/Imagen4.webp', '/Imagen5.webp', '/Imagen6.webp', '/Imagen7.webp'],
     description: 'Servicio semanal de entrega de alimentos frescos, precocinados, lácteos y lotes básicos para familias y personas en situación de vulnerabilidad en el barrio de Sagrada Família.',
     collaboration: 'En colaboración activa con la Fundació Banc dels Aliments, Fundació Ferrer Sustainability, Aldi, DiSA Càritas Sagrada Família y Mercabarna.',
     hours: 'Repartos y atención: Miércoles de 09:00 a 12:30 h.'
@@ -203,7 +203,7 @@ const projectDetails = {
   ropero: {
     title: 'Ropero Solidario',
     category: 'Área Social',
-    images: ['Imagen8.webp'],
+    images: ['/Imagen8.webp'],
     description: 'Dispensación periódica de ropa, calzado para adultos e infantil, abrigos y accesorios en perfecto estado, seleccionados y clasificados por nuestro equipo de voluntarios.',
     collaboration: 'Gestionado gracias a donaciones vecinales, fundaciones aliadas y particulares.',
     hours: 'Atención presencial con cita previa y días asignados.'
@@ -211,7 +211,7 @@ const projectDetails = {
   acogida: {
     title: 'Asesoramiento y 1ª Acogida',
     category: 'Área Social',
-    images: ['Imagen9.webp'],
+    images: ['/Imagen9.webp'],
     description: 'Espacio de escucha empática, orientación en trámites de empadronamiento, tarjeta sanitaria, ayudas sociales y derivación oficial a organismos públicos competentes.',
     collaboration: 'En coordinación permanente con Servicios Sociales del Ayuntamiento de Barcelona y el Pla Comunitari de la Sagrada Família.',
     hours: 'Miércoles (09:00 - 12:30) y 2º Viernes de mes (16:00 - 19:00).'
@@ -219,7 +219,7 @@ const projectDetails = {
   podologia: {
     title: 'Podología Solidaria',
     category: 'Salud y Bienestar',
-    images: ['Imagen3.webp'],
+    images: ['/Imagen3.webp'],
     description: 'Atención podológica preventiva y tratamientos especializados para personas mayores y colectivos con escasos recursos, evitando complicaciones de movilidad.',
     collaboration: 'Proyecto trimestral coordinado junto al CAP Sagrada Família y CAP Roger de Flor.',
     hours: 'Sesiones trimestrales programadas con los centros de atención primaria.'
@@ -227,7 +227,7 @@ const projectDetails = {
   ocular: {
     title: 'Revisión Ocular y Préstamo Ortopédico',
     category: 'Salud y Bienestar',
-    images: ['Imagen10.webp', 'Imagen11.webp', 'Imagen12.webp'],
+    images: ['/Imagen10.webp', '/Imagen11.webp', '/Imagen12.webp'],
     description: 'Campañas semestrales de salud visual gratuita con graduación y asesoramiento, junto a un banco de préstamo sin coste de material ortopédico (sillas de ruedas, andadores y muletas).',
     collaboration: 'En colaboración con la Fundació Temps i Compromís.',
     hours: 'Campañas semestrales anunciadas en la asociación.'
@@ -235,7 +235,7 @@ const projectDetails = {
   idiomas: {
     title: 'Cursos de Idiomas para la Inclusión',
     category: 'Formación y Empleo',
-    images: ['Imagen13.webp', 'Imagen14.webp', 'Imagen15.webp', 'Imagen16.webp', 'Imagen17.webp', 'Imagen18.webp'],
+    images: ['/Imagen13.webp', '/Imagen14.webp', '/Imagen15.webp', '/Imagen16.webp', '/Imagen17.webp', '/Imagen18.webp'],
     description: 'Clases formativas y prácticas de catalán, castellano e inglés impartidas por profesores voluntarios para facilitar la integración comunitaria y el acceso al empleo.',
     collaboration: 'Abierto a todos los vecinos del distrito.',
     hours: 'Grupos en horario de mañana y tarde.'
@@ -243,7 +243,7 @@ const projectDetails = {
   costura: {
     title: 'Talleres de Costura y Habilidades Textiles',
     category: 'Formación y Empleo',
-    images: ['Imagen20.webp', 'Imagen21.webp'],
+    images: ['/Imagen20.webp', '/Imagen21.webp'],
     description: 'Formación técnica y creativa en patronaje, arreglo y confección de prendas para fomentar la autosuficiencia, el emprendimiento y la convivencia vecinal.',
     collaboration: 'Equipado con máquinas de coser donadas por la comunidad.',
     hours: 'Talleres semanales.'
@@ -251,7 +251,7 @@ const projectDetails = {
   camarero: {
     title: 'Curso de Ayudante de Camarero y Hostelería',
     category: 'Formación y Empleo',
-    images: ['Imagen22.webp', 'Imagen23.webp', 'Imagen24.webp'],
+    images: ['/Imagen22.webp', '/Imagen23.webp', '/Imagen24.webp'],
     description: 'Capacitación profesional en servicio de sala, protocolo básico de hostelería, certificado de manipulador de alimentos y salidas con prácticas formativas.',
     collaboration: 'Con visitas culturales e intermediación con el sector de restauración.',
     hours: 'Convocatorias periódicas anuales.'
@@ -259,7 +259,7 @@ const projectDetails = {
   ucrania: {
     title: 'Ayuda Humanitaria a Ucrania',
     category: 'Acción Internacional',
-    images: ['Imagen50.webp', 'Imagen51.webp', 'Imagen53.webp'],
+    images: ['/Imagen50.webp', '/Imagen51.webp', '/Imagen53.webp'],
     description: 'Campaña continua de recogida, empaquetado y transporte de medicamentos de emergencia, material sanitario y suministros esenciales a zonas de conflicto.',
     collaboration: 'En red con entidades de ayuda humanitaria internacional.',
     hours: 'Punto de recogida activo en nuestra sede.'
@@ -267,7 +267,7 @@ const projectDetails = {
   cuba: {
     title: 'Envío de Contenedores a Cuba',
     category: 'Acción Internacional',
-    images: ['Imagen54.webp', 'Imagen55.webp', 'Imagen56.webp'],
+    images: ['/Imagen54.webp', '/Imagen55.webp', '/Imagen56.webp'],
     description: 'Gestión logística y carga de contenedores solidarios con alimentos no perecederos, ropa, material escolar y ortopédico con entrega directa y trazable.',
     collaboration: 'Coordinado estrechamente con la ONG Acordes.',
     hours: 'Campañas periódicas de carga y envío.'
@@ -276,9 +276,9 @@ const projectDetails = {
     title: 'Festa Major de Barri (Sagrada Família)',
     category: 'Comunidad y Ocio',
     images: [
-      'Imagen35.webp', 'Imagen36.webp', 'Imagen37.webp', 'Imagen38.webp', 'Imagen39.webp',
-      'Imagen40.webp', 'Imagen41.webp', 'Imagen42.webp', 'Imagen43.webp', 'Imagen45.webp',
-      'Imagen46.webp', 'Imagen47.webp', 'Imagen48.webp', 'Imagen49.webp'
+      '/Imagen35.webp', '/Imagen36.webp', '/Imagen37.webp', '/Imagen38.webp', '/Imagen39.webp',
+      '/Imagen40.webp', '/Imagen41.webp', '/Imagen42.webp', '/Imagen43.webp', '/Imagen45.webp',
+      '/Imagen46.webp', '/Imagen47.webp', '/Imagen48.webp', '/Imagen49.webp'
     ],
     description: 'Presencia activa en las fiestas patronales del barrio con talleres infantiles, juegos tradicionales, pintacaras, globoflexia, ludoteca comunitaria y reparto de rosas solidarias.',
     collaboration: 'En la Coordinadora d’Entitats de la Sagrada Família.',
@@ -288,8 +288,8 @@ const projectDetails = {
     title: 'Campaña de Navidad y Reyes',
     category: 'Comunidad y Ocio',
     images: [
-      'Imagen25.webp', 'Imagen26.webp', 'Imagen27.webp', 'Imagen28.webp', 'Imagen29.webp',
-      'Imagen30.webp', 'Imagen31.webp', 'Imagen32.webp', 'Imagen33.webp'
+      '/Imagen25.webp', '/Imagen26.webp', '/Imagen27.webp', '/Imagen28.webp', '/Imagen29.webp',
+      '/Imagen30.webp', '/Imagen31.webp', '/Imagen32.webp', '/Imagen33.webp'
     ],
     description: 'Recogida y reparto de juguetes nuevos para que ningún niño del barrio se quede sin ilusión, entrega de libros y celebración de almuerzo comunitario de Año Nuevo.',
     collaboration: 'Con aportaciones de comercios locales, vecinos y empresas solidarias.',
@@ -298,10 +298,124 @@ const projectDetails = {
   voluntariado: {
     title: 'Formación Continua al Voluntariado',
     category: 'Comunidad y Ocio',
-    images: ['Imagen58.webp', 'Imagen59.webp'],
+    images: ['/Imagen58.webp', '/Imagen59.webp'],
     description: 'Cursos formativos específicos para voluntarios: manipulación de alimentos, prevención de riesgos, confidencialidad y escucha activa en el ámbito social.',
     collaboration: 'Impartido por técnicos especialistas.',
     hours: 'Jornadas de capacitación periódicas.'
+  }
+};
+
+const projectDetailsCa = {
+  banco: {
+    title: "Banc d'Aliments",
+    category: "Àrea Social",
+    images: ['/Imagen1.webp', '/Imagen2.webp', '/Imagen4.webp', '/Imagen5.webp', '/Imagen6.webp', '/Imagen7.webp'],
+    description: "Servei setmanal de lliurament d'aliments frescos, precuinats, lactis i lots bàsics de primera necessitat per a famílies i persones en situació de vulnerabilitat al barri de la Sagrada Família.",
+    collaboration: "En col·laboració activa amb la Fundació Banc dels Aliments, Fundació Ferrer Sustainability, Aldi, DiSA Càritas Sagrada Família i Mercabarna.",
+    hours: "Repartiments i atenció: Dimecres de 09:00 a 12:30 h."
+  },
+  ropero: {
+    title: "Rober Solidari",
+    category: "Àrea Social",
+    images: ['/Imagen8.webp'],
+    description: "Dispensació periòdica de roba neta, calçat per a adults i infantil, peces d'abric i complements en bon estat, seleccionats i classificats pel nostre equip de voluntaris.",
+    collaboration: "Gestionat gràcies a donacions veïnals, fundacions aliades i particulars.",
+    hours: "Atenció presencial amb cita prèvia i dies assignats."
+  },
+  acogida: {
+    title: "Assessorament i 1a Acollida",
+    category: "Àrea Social",
+    images: ['/Imagen9.webp'],
+    description: "Espai d'escolta empàtica, orientació en tràmits d'empadronament, targeta sanitària, ajuts socials i derivació oficial als Serveis Socials de Barcelona i al Pla Comunitari de Sagrada Família.",
+    collaboration: "En coordinació permanent amb Serveis Socials de l'Ajuntament de Barcelona i el Pla Comunitari de la Sagrada Família.",
+    hours: "Dimecres (09:00 - 12:30) i 2n Divendres de mes (16:00 - 19:00)."
+  },
+  podologia: {
+    title: "Podologia Solidària",
+    category: "Salut i Benestar",
+    images: ['/Imagen3.webp'],
+    description: "Atenció podològica preventiva i tractaments especialitzats de quiropòdia per a gent gran i persones amb escassos recursos, evitant complicacions de mobilitat.",
+    collaboration: "Projecte trimestral coordinat juntament amb el CAP Sagrada Família i CAP Roger de Flor.",
+    hours: "Sessions trimestrals programades amb els centres d'atenció primària."
+  },
+  ocular: {
+    title: "Revisió Ocular i Préstec Ortopèdic",
+    category: "Salut i Benestar",
+    images: ['/Imagen10.webp', '/Imagen11.webp', '/Imagen12.webp'],
+    description: "Campanyes semestrals de salut visual gratuïta amb graduació i assessorament, juntament amb un banc solidari de préstec sense cost de material ortopèdic (cadires de rodes, caminadors i crosses).",
+    collaboration: "En col·laboració amb la Fundació Temps i Compromís.",
+    hours: "Campanyes semestrals anunciades a l'associació."
+  },
+  idiomas: {
+    title: "Cursos d'Idiomes per a la Inclusió",
+    category: "Formació i Ocupació",
+    images: ['/Imagen13.webp', '/Imagen14.webp', '/Imagen15.webp', '/Imagen16.webp', '/Imagen17.webp', '/Imagen18.webp'],
+    description: "Classes formatives i pràctiques de català, castellà i anglès impartides per professorat voluntari per facilitar la integració comunitària, l'arrelament i l'accés al món laboral.",
+    collaboration: "Obert a tots els veïns i veïnes del districte.",
+    hours: "Grups en horari de matí i tarda."
+  },
+  costura: {
+    title: "Tallers de Costura i Habilitats Tèxtils",
+    category: "Formació i Ocupació",
+    images: ['/Imagen20.webp', '/Imagen21.webp'],
+    description: "Formació tècnica i creativa en patronatge, confecció i arranjament de peces per fomentar l'autosuficiència, l'emprenedoria i la convivència veïnal.",
+    collaboration: "Equipat amb màquines de cosir donades per la comunitat.",
+    hours: "Tallers setmanals."
+  },
+  camarero: {
+    title: "Curs d'Ajudant de Cambrer i Hostaleria",
+    category: "Formació i Ocupació",
+    images: ['/Imagen22.webp', '/Imagen23.webp', '/Imagen24.webp'],
+    description: "Capacitació professional en servei de sala, protocol bàsic d'hostaleria, certificat de manipulador d'aliments i sortides formatives amb visites culturals com el Gran Teatre del Liceu.",
+    collaboration: "Amb intermediació i visites al sector de la restauració.",
+    hours: "Convocatòries periòdiques anuals."
+  },
+  ucrania: {
+    title: "Ajuda Humanitària a Ucraïna",
+    category: "Acció Internacional",
+    images: ['/Imagen50.webp', '/Imagen51.webp', '/Imagen53.webp'],
+    description: "Campanya contínua de recollida, empaquetatge i transport de medicaments d'emergència, material sanitari i queviures essencials a zones afectades pel conflicte.",
+    collaboration: "En xarxa amb entitats d'ajuda humanitària internacional.",
+    hours: "Punt de recollida actiu a la nostra seu."
+  },
+  cuba: {
+    title: "Enviament de Contenidors a Cuba",
+    category: "Acció Internacional",
+    images: ['/Imagen54.webp', '/Imagen55.webp', '/Imagen56.webp'],
+    description: "Gestió logística i càrrega coordinada de contenidors marítims solidaris amb aliments no peribles, roba, material escolar i ortopèdic amb lliurament directe i traçable.",
+    collaboration: "Coordinat estretament amb l'ONG Acordes.",
+    hours: "Campanyes periòdiques de càrrega i enviament."
+  },
+  festa: {
+    title: "Festa Major de Barri (Sagrada Família)",
+    category: "Comunitat i Lleure",
+    images: [
+      '/Imagen35.webp', '/Imagen36.webp', '/Imagen37.webp', '/Imagen38.webp', '/Imagen39.webp',
+      '/Imagen40.webp', '/Imagen41.webp', '/Imagen42.webp', '/Imagen43.webp', '/Imagen45.webp',
+      '/Imagen46.webp', '/Imagen47.webp', '/Imagen48.webp', '/Imagen49.webp'
+    ],
+    description: "Presència activa a les festes patronals del barri amb tallers infantils, jocs tradicionals, pintacares, globoflèxia, ludoteca comunitària i repartiment de roses solidàries.",
+    collaboration: "A la Coordinadora d’Entitats de la Sagrada Família.",
+    hours: "Durant les dates festives anuals del barri."
+  },
+  navidad: {
+    title: "Campanya de Nadal i Reis",
+    category: "Comunitat i Lleure",
+    images: [
+      '/Imagen25.webp', '/Imagen26.webp', '/Imagen27.webp', '/Imagen28.webp', '/Imagen29.webp',
+      '/Imagen30.webp', '/Imagen31.webp', '/Imagen32.webp', '/Imagen33.webp'
+    ],
+    description: "Recollida i repartiment de joguines solidàries noves perquè cap infant del barri es quedi sense il·lusió el dia de Reis, lliurament de llibres i dinar comunitari de Cap d'Any.",
+    collaboration: "Amb aportacions de comerços locals, veïns i empreses solidàries.",
+    hours: "Desembre i primers dies de gener."
+  },
+  voluntariado: {
+    title: "Formació del Voluntariat",
+    category: "Comunitat i Lleure",
+    images: ['/Imagen58.webp', '/Imagen59.webp'],
+    description: "Cursos formatius específics per a voluntaris: manipulació d'aliments, prevenció de riscos, confidencialitat, seguretat i escolta activa en l'àmbit social.",
+    collaboration: "Impartit per tècnics especialistes.",
+    hours: "Jornades de capacitació periòdiques."
   }
 };
 
@@ -325,7 +439,7 @@ function initModals() {
 
   window.openModal = function(key) {
     const isCa = document.documentElement.lang === 'ca';
-    const data = (isCa && window.projectDetailsCa && window.projectDetailsCa[key]) ? window.projectDetailsCa[key] : projectDetails[key];
+    const data = isCa ? (projectDetailsCa[key] || projectDetails[key]) : projectDetails[key];
     if (!data) return;
     trackInteraction('ver-galeria', { accion: 'abrir_proyecto', proyecto: key });
 
@@ -763,19 +877,19 @@ function initRedComunitariaDropdown() {
     enlacemos: {
       name: 'Asociación Enlacemos Nuestras Manos',
       colonias: 630,
-      image: 'Imagen25.webp',
+      image: '/Imagen25.webp',
       isPhoto: true,
       imageAlt: 'Entrega de colonias y juguetes en la Asociación Enlacemos Nuestras Manos',
       summary: 'Reparto directo desde nuestra sede en el barrio de Sagrada Família (Barcelona) a niños y niñas de familias atendidas en la asociación, combinando colonias y juguetes para que tuvieran un regalo el día de Reyes.',
       gallery: [
-        { src: 'Imagen25.webp', alt: 'Mesa de entrega de colonias y regalos de Reyes' },
-        { src: 'Imagen27.webp', alt: 'Preparación de colonias y juguetes para las familias' }
+        { src: '/Imagen25.webp', alt: 'Mesa de entrega de colonias y regalos de Reyes' },
+        { src: '/Imagen27.webp', alt: 'Preparación de colonias y juguetes para las familias' }
       ]
     },
     gradeblat: {
       name: 'El Gra de Blat',
       colonias: 600,
-      image: '96.webp',
+      image: '/96.webp',
       isPhoto: false,
       imageAlt: 'Logotipo de El Gra de Blat',
       summary: 'Entrega de 600 colonias a la entidad colaboradora El Gra de Blat dentro del proyecto Solidaridad en Red, ampliando el alcance del donativo de Air Val Internacional S.A. a más familias y menores en situación de vulnerabilidad.',
@@ -784,7 +898,7 @@ function initRedComunitariaDropdown() {
     estel: {
       name: "L'Estel del Matí",
       colonias: 260,
-      image: '97.webp',
+      image: '/97.webp',
       isPhoto: false,
       imageAlt: "Identidad de Associació Col·lectiu Cristià L'Estel del Matí",
       summary: "Distribución de 260 colonias al Col·lectiu Cristià L'Estel del Matí (Granollers) para sumarlas a su campaña solidaria de Navidad y llevar un detalle de Reyes a niños y niñas de familias en riesgo de exclusión social.",
@@ -793,10 +907,52 @@ function initRedComunitariaDropdown() {
     emmanuel: {
       name: 'Residencia Infantil Emmanuel',
       colonias: 20,
-      image: '95.webp',
+      image: '/95.webp',
       isPhoto: true,
       imageAlt: 'Residencia Infantil Emmanuel',
       summary: 'Entrega de 20 colonias destinadas a los niños y niñas acogidos en la Residencia Infantil Emmanuel, compartiendo la ilusión del día de Reyes dentro de la red de entidades colaboradoras.',
+      website: 'https://resi-rie.org/'
+    }
+  };
+
+  const entityDeliveriesCa = {
+    enlacemos: {
+      name: 'Associació Enlacemos Nuestras Manos',
+      colonias: 630,
+      image: '/Imagen25.webp',
+      isPhoto: true,
+      imageAlt: "Lliurament de colònies i joguines a l'Associació Enlacemos Nuestras Manos",
+      summary: "Repartiment directe des de la nostra seu al barri de la Sagrada Família (Barcelona) a nens i nenes de famílies ateses a l'associació, combinant colònies i joguines perquè tinguessin un regal el dia de Reis.",
+      gallery: [
+        { src: '/Imagen25.webp', alt: 'Taula de lliurament de colònies i regals de Reis' },
+        { src: '/Imagen27.webp', alt: 'Preparació de colònies i joguines per a les famílies' }
+      ]
+    },
+    gradeblat: {
+      name: 'El Gra de Blat',
+      colonias: 600,
+      image: '/96.webp',
+      isPhoto: false,
+      imageAlt: "Logotip d'El Gra de Blat",
+      summary: "Lliurament de 600 colònies a l'entitat col·laboradora El Gra de Blat dins del projecte Solidaritat en Xarxa, ampliant l'abast del donatiu d'Air Val Internacional S.A. a més famílies i menors en situació de vulnerabilitat.",
+      website: 'https://www.facebook.com/gradeblat/?locale=es_ES'
+    },
+    estel: {
+      name: "L'Estel del Matí",
+      colonias: 260,
+      image: '/97.webp',
+      isPhoto: false,
+      imageAlt: "Identitat de l'Associació Col·lectiu Cristià L'Estel del Matí",
+      summary: "Distribució de 260 colònies al Col·lectiu Cristià L'Estel del Matí (Granollers) per sumar-les a la seva campanya solidària de Nadal i portar un detall de Reis a nens i nenes de famílies en risc d'exclusió social.",
+      website: 'https://www.granollers.cat/adreces/cooperacio-i-desenvolupament/col%C2%B7lectiu-cristia-lestel-del-mati-granollers'
+    },
+    emmanuel: {
+      name: 'Residència Infantil Emmanuel',
+      colonias: 20,
+      image: '/95.webp',
+      isPhoto: true,
+      imageAlt: 'Residència Infantil Emmanuel',
+      summary: "Lliurament de 20 colònies destinades als nens i nenes acollits a la Residència Infantil Emmanuel, compartint la il·lusió del dia de Reis dins de la xarxa d'entitats col·laboradores.",
       website: 'https://resi-rie.org/'
     }
   };
@@ -818,9 +974,7 @@ function initRedComunitariaDropdown() {
   };
 
   const renderEntityDetail = (key) => {
-    const data = (isCa && window.entityDeliveriesCa && window.entityDeliveriesCa[key])
-      ? window.entityDeliveriesCa[key]
-      : entityDeliveries[key];
+    const data = isCa ? (entityDeliveriesCa[key] || entityDeliveries[key]) : entityDeliveries[key];
     if (!data || !detailContainer) return;
 
     const percent = ((data.colonias / totalColonias) * 100).toFixed(1).replace('.', ',');
