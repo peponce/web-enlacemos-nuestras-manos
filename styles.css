@@ -704,7 +704,7 @@ img {
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) auto minmax(0, 0.9fr);
-  align-items: center;
+  align-items: start;
   gap: 32px;
   position: relative;
   z-index: 2;
@@ -719,6 +719,7 @@ img {
   align-items: center;
   justify-content: center;
   justify-self: center;
+  margin-top: 56px;
 }
 
 .hero-logo-badge {
@@ -797,6 +798,7 @@ img {
   color: #ffffff;
   max-width: 480px;
   width: 100%;
+  margin-top: 56px;
   margin-left: auto;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
