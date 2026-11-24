@@ -467,7 +467,7 @@ function initModals() {
       modalGallery.innerHTML = '';
       if (data.images && data.images.length > 0) {
         if (modalGalleryCount) {
-          modalGalleryCount.textContent = isCa ? `(${data.images.length} fotos reals)` : `(${data.images.length} fotos reales)`;
+          modalGalleryCount.textContent = '';
         }
         data.images.forEach((imgSrc, index) => {
           const item = document.createElement('div');
