@@ -1135,7 +1135,7 @@ function initInteractionTracking() {
   document.querySelectorAll('a[href*="google.com/maps"], a[href*="maps.google"]').forEach(link => {
     link.addEventListener('click', () => {
       trackInteraction('click-maps', {
-        direccion: 'Passatge de Gaiola, 8, 12',
+        direccion: 'Passatge Matilde de Gaiolà 8-12',
         event_category: 'contacto',
         event_label: 'Google Maps Gaiola'
       });
