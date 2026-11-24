@@ -96,7 +96,7 @@ Para que el frontend mantenga el mismo nivel de excelencia, todo cambio futuro d
 |---|---|---|---|
 | **GitHub** | Código fuente y hosting estático (GitHub Pages) | Repositorio: `isaac-velcar/web-enlacemos-nuestras-manos` (rama `main`) | Pedir ser añadido como colaborador al repo con permisos de `push` |
 | **Cloudflare** | DNS, SSL universal, cortafuegos, Web Analytics y purga de caché edge | Zone ID: `b4b3ed06e15e11a1d5980c894480bde6`<br>Dominio: `enlacemosnuestrasmanos.org` | Solicitar a Isaac una API Token con permiso `Zone:Cache Purge:Edit` o invitación de miembro a la cuenta de Cloudflare |
-| **Google Analytics 4** | Medición de tráfico, eventos de contacto y comportamiento de usuarios | Cuenta: `417253269`<br>Propiedad: `properties/565635086`<br>Measurement ID: `G-1ZMS4861KT` | Pedir a Isaac que añada tu email de Google como usuario con rol "Analista" o "Editor" en GA4 |
+| **Google Analytics 4** | Medición de tráfico, eventos de contacto y comportamiento de usuarios | Cuenta: `417253269`<br>Propiedad: `properties/565635086`<br>Measurement ID: `G-FL9DH58RRD` | Pedir a Isaac que añada tu email de Google como usuario con rol "Analista" o "Editor" en GA4 |
 | **Google Tag Manager** | Contenedor de etiquetas y consent mode | Contenedor ID: `GTM-P6SK82MS` | Pedir invitación como usuario con rol "Lectura" o "Publicación" |
 | **Google Search Console** | Indexación, sitemap, rendimiento de búsqueda orgánica | Dominio verificado: `enlacemosnuestrasmanos.org` | Pedir a Isaac delegación de propiedad o permisos de consulta |
 
@@ -140,7 +140,7 @@ system_metadata:
   cloudflare_zone_id: "b4b3ed06e15e11a1d5980c894480bde6"
   cache_busting_version: "v1.7"
   ga4_property_id: "565635086"
-  ga4_measurement_id: "G-1ZMS4861KT"
+  ga4_measurement_id: "G-FL9DH58RRD"
   gtm_container_id: "GTM-P6SK82MS"
 ```
 
